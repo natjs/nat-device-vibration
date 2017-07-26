@@ -6,22 +6,22 @@ import android.os.Vibrator;
 
 /**
  * Created by xuqinchao on 17/2/7.
- *  Copyright (c) 2017 Nat. All rights reserved.
+ *  Copyright (c) 2017 Instapp. All rights reserved.
  */
 
-public class HLVibrationModule{
+public class VibrationModule {
     private Context mContext;
-    private static volatile HLVibrationModule instance = null;
+    private static volatile VibrationModule instance = null;
 
-    private HLVibrationModule(Context context){
+    private VibrationModule(Context context){
         mContext = context;
     }
 
-    public static HLVibrationModule getInstance(Context context) {
+    public static VibrationModule getInstance(Context context) {
         if (instance == null) {
-            synchronized (HLVibrationModule.class) {
+            synchronized (VibrationModule.class) {
                 if (instance == null) {
-                    instance = new HLVibrationModule(context);
+                    instance = new VibrationModule(context);
                 }
             }
         }
@@ -29,7 +29,7 @@ public class HLVibrationModule{
         return instance;
     }
     
-    public void vibrate(int time, HLModuleResultListener listener){
+    public void vibrate(int time, ModuleResultListener listener){
         if (time == 0) time = 500;
         cancelVibration();
         vibrate(time);
